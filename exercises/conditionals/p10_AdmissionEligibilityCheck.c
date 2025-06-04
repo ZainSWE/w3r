@@ -30,7 +30,7 @@ int main() {
     total = math + physics + chemistry;
     mptotal = math + physics;
 
-    if (math >= 65 && physics >= 55 & chemistry >= 50 && total >= 190) {
+    if (math >= 65 && physics >= 55 && chemistry >= 50 && total >= 190) {
 	printf("The candidate is eligible for admission.\n");
     }
 
