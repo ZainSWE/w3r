@@ -12,11 +12,13 @@ Input kilometers per hour: 15
 
 int main () {
 
-    int kph;
+    char line[100];
+    double kph;
     double mph;
 
     printf("Input kilometers per hour: ");
-    scanf("%d", &kph);
+    fgets(line, sizeof(line), stdin);
+    sscanf(line, "%lf", &kph);
 
     mph = kph * 0.621371;
 
