@@ -20,7 +20,7 @@ int main () {
     sscanf(line, "%d", &age);
 
     if (age >= 18) {
-	printf("Congradulations! You are eligible for casting your vote\n");
+	printf("Congratulations! You are eligible for casting your vote\n");
     }
 
     else {
