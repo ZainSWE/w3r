@@ -13,13 +13,16 @@ Total: 337 minutes.
 
 int main () {
 
+    char line[100];
     int hours, minutes, total;
 
     printf("Input hours: ");
-    scanf("%d", &hours);
+    fgets(line, sizeof(line), stdin);
+    sscanf(line, "%d", &hours);
 
     printf("Input minutes: ");
-    scanf("%d", &minutes);
+    fgets(line, sizeof(line), stdin);
+    sscanf(line, "%d", &minutes);
 
     total = (hours * 60) + minutes;
 
