@@ -12,10 +12,12 @@ Input minutes: 546
 
 int main () {
 
+    char line[100];
     int hours, minutes, remainder;
 
     printf("Input minutes: ");
-    scanf("%d", &minutes);
+    fgets(line, sizeof(line), stdin);
+    sscanf(line, "%d", &minutes);
 
     hours = minutes / 60;
 
