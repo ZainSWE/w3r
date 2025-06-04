@@ -13,19 +13,13 @@ Expected Output :
 int main () {
 
     char line[100];
-    int num, remainder;
+    int num;
 
     printf("Enter number: ");
     fgets(line, sizeof(line), stdin);
     sscanf(line, "%d", &num);
 
-    remainder = num % 2;
-
-    if (num == 0) {
-	printf("%d is neither odd or even\n", num);
-    }
-
-    else if (remainder == 0) {
+    if (num % 2 == 0) {
 	printf("%d is an even integer\n", num);
     }
 
