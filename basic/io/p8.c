@@ -11,10 +11,12 @@ The sum of three numbers : 30
 
 int main () {
 
+    char line[100];
     int num1, num2, num3, sum;
 
     printf("Input three numbers seperated by comma: ");
-    scanf("%d,%d,%d", &num1, &num2, &num3);
+    fgets(line, sizeof(line), stdin);
+    sscanf(line, "%d,%d,%d", &num1, &num2, &num3);
 
     sum = num1 + num2 + num3;
 
