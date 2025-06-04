@@ -15,17 +15,21 @@ Tom Davis 1982
 int main () {
 
     int yob;
+    char line[100];
     char firstname[50];
     char lastname[50];
 
     printf("Input your firstname: ");
-    scanf("%s", firstname);
+    fgets(line, sizeof(line), stdin);
+    sscanf(line, "%s", firstname);
 
     printf("Input your lastname: ");
-    scanf("%s", lastname);
+    fgets(line, sizeof(line), stdin);
+    sscanf(line, "%s", lastname);
 
     printf("Input your year of birth: ");
-    scanf("%d", &yob);
+    fgets(line, sizeof(line), stdin);
+    sscanf(line, "%d", &yob);
 
     printf("%s %s %d\n", firstname, lastname, yob);
 
