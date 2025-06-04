@@ -15,11 +15,13 @@ The quotient of the given numbers : 2.000000
 
 int main () {
 
+    char line[100];
     int num1, num2, sum, difference, product;
     double quotient;
 
     printf("Input any two numbers seperated by comma: ");
-    scanf("%d,%d", &num1, &num2);
+    fgets(line, sizeof(line), stdin);
+    sscanf(line, "%d,%d", &num1, &num2);
 
     sum = num1 + num2;
     difference = num1 - num2;
