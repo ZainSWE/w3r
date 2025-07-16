@@ -10,7 +10,7 @@ Description: A simple student database program that allows users to store, updat
 typedef struct Student {
     int id;
     char name[50];
-    float gpa;
+    double gpa;
 } Student;
 
 void studentDetails(Student s[], int studentIndex);
@@ -38,15 +38,26 @@ int main () {
 
 	//if user chooses menu option 1
 	if (menuChoice == 1) {
+
 	    printf("\nEnter student details:\n");
 	    printf("Student ID: ");
 	    fgets(buffer, sizeof(buffer), stdin);
 	    sscanf(buffer, "%d", &s[studentIndex].id);
 
+            /*int occupied = s[studentIndex].id;
+
+	    if (s[studentIndex].id == occupied) {
+		printf("Error: ID already occupied by another student.\n");
+	    	break;
+	    }*/
+
 	    printf("Name: ");
 	    fgets(buffer, sizeof(buffer), stdin);
 	    sscanf(buffer, "%s", s[studentIndex].name);
-	    printf("Student %d's name is: %s.\n", studentIndex, s[studentIndex].name);
+
+	    printf("GPA: ");
+	    fgets(buffer, sizeof(buffer), stdin);
+	    sscanf(buffer, "%lf", &s[studentIndex].gpa);
 
 	    studentIndex++;
 	}
@@ -87,8 +98,9 @@ int main () {
     return 0;
 }
 
-void studentDetails(Student s[], int studentNumber) {
+void studentDetails(Student s[], int studentIndex) {
 
-     printf("Student ID: %d\n", s[studentNumber].id);
-     printf("Name: %s\n", s[studentNumber].name);
+     printf("Student ID: %d\n", s[studentIndex].id);
+     printf("Name: %s\n", s[studentIndex].name);
+     printf("GPA: %.2lf\n", s[studentIndex].gpa);
 }
