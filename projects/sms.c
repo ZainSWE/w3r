@@ -24,7 +24,7 @@ int main () {
     int studentIndex = 1;
     int searchID;
 
-	//indefinate loop for main menu
+	//indefinite loop for main menu
 	while (1) {
 
 	//main menu options
@@ -53,32 +53,30 @@ int main () {
 
 	//if user chooses menu option 2
 	else if (menuChoice == 2) {
-	    printf("Enter student ID to view: ");
+	    printf("\nEnter student ID to view: ");
 	    fgets(buffer, sizeof(buffer), stdin);
 	    sscanf(buffer, "%d", &searchID);
 
-	    studentDetails(s, studentIndex);
+	    int found = 0;
 
-    int found = 0;
+	    for (int i = 1; i < studentIndex; i++) {
+	        if (s[i].id == searchID) {
+	            studentDetails(s, i);
+	            found = 1;
+	            break;
+	        }
+	    }
 
-    for (int i = 1; i < studentIndex; i++) {
-        if (s[i].id == searchID) {
-            studentDetails(s, i);
-            found = 1;
-            break;
-        }
-    }
+	    if (!found) {
+	        printf("Student with ID %d not found.\n", searchID);
+	    }
+		}
 
-    if (!found) {
-        printf("Student with ID %d not found.\n", searchID);
-    }
-	}
-
-	//if user chooses menu option 3
-	else if (menuChoice == 3) {
-	    printf("\nExited Program.\n");
-	    break;
-	}
+		//if user chooses menu option 3
+		else if (menuChoice == 3) {
+		    printf("\nExited Program.\n");
+		    break;
+		}
 
 	//if user chooses invalid menu option
 	else {
