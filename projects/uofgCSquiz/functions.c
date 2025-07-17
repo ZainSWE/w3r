@@ -8,7 +8,7 @@
 
 void divider (int num) {
 
-    for (int i = 0; i <= num; i++) {
+    for (int i = 0; i < num; i++) {
 	printf("*");
     }
 }
@@ -84,8 +84,8 @@ void firstYearQuestions () {
 	"\nA. 2"
 	"\nB. 2.5"
 	"\nC. 0.5"
-	"\nD. 4\n"
-	"\nEnter choice: "
+	"\nD. 4"
+	"\n\nEnter choice: "
 	);
 
 	fgets(buffer, sizeof(buffer), stdin);
@@ -101,6 +101,8 @@ void firstYearQuestions () {
 	else {
 	    printf("Error: Invalid choice.\n");
 	}
+	divider(70);
+	printf("\n");
     }
 
     //question 1
@@ -112,8 +114,8 @@ void firstYearQuestions () {
 	"\nA. CIS*1300"
 	"\nB. CIS*1910"
 	"\nC. MATH*1200"
-	"\nD. MATH*1080\n"
-	"\nEnter choice: "
+	"\nD. MATH*1080"
+	"\n\nEnter choice: "
 	);
 
 	fgets(buffer, sizeof(buffer), stdin);
@@ -129,6 +131,68 @@ void firstYearQuestions () {
 	else {
 	    printf("Error: Invalid choice.\n");
 	}
+	divider(70);
+	printf("\n");
+    }
+
+    //question 2
+
+    else if (q[questionNumber].id == 2) {
+	divider(70);
+	printf("\nQuestion: How long is each semseter?\n");
+	printf(
+	"\nA. 8 weeks"
+	"\nB. 14 weeks"
+	"\nC. 12 weeks"
+	"\nD. 10 weeks"
+	"\n\nEnter choice: "
+	);
+
+	fgets(buffer, sizeof(buffer), stdin);
+	sscanf(buffer, "%s", questionChoice);
+	printf("\nYour choice: %s.\n", questionChoice);
+
+	if (strcasecmp(questionChoice, "C") == 0) {
+	    printf("Correct!\n");
+	}
+	else if (strcasecmp(questionChoice, "A") == 0 || strcasecmp(questionChoice, "B") == 0 || strcasecmp(questionChoice, "D") == 0) {
+	    printf("Incorrect. (Answer: 'C')\n");
+	}
+	else {
+	    printf("Error: Invalid choice.\n");
+	}
+	divider(70);
+	printf("\n");
+    }
+
+    //question 3
+
+    else if (q[questionNumber].id == 3) {
+	divider(70);
+	printf("\nQuestion: What is the minimum cGPA needed to avoid academic probation?\n");
+	printf(
+	"\nA. 1.7"
+	"\nB. 2.3"
+	"\nC. 0.7"
+	"\nD. 3.0"
+	"\n\nEnter choice: "
+	);
+
+	fgets(buffer, sizeof(buffer), stdin);
+	sscanf(buffer, "%s", questionChoice);
+	printf("\nYour choice: %s.\n", questionChoice);
+
+	if (strcasecmp(questionChoice, "A") == 0) {
+	    printf("Correct!\n");
+	}
+	else if (strcasecmp(questionChoice, "B") == 0 || strcasecmp(questionChoice, "C") == 0 || strcasecmp(questionChoice, "D") == 0) {
+	    printf("Incorrect. (Answer: 'A')\n");
+	}
+	else {
+	    printf("Error: Invalid choice.\n");
+	}
+	divider(70);
+	printf("\n");
     }
 }
 

@@ -6,7 +6,7 @@ int main () {
     divider(40);
 
     printf(
-    "\nWelcome to the University of Guleph"
+    "\nWelcome to the University of Guelph"
     "\nComputer Science Quiz. Here you will"
     "\nbe tested on which courses are included"
     "\nin your program based on the year you select.\n"
