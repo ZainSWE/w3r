@@ -61,6 +61,7 @@ void firstYearQuestions () {
 
     typedef struct Question {
 	int id;
+	int points;
     } Question;
 
     //index randomizer
@@ -76,7 +77,6 @@ void firstYearQuestions () {
     char questionChoice[50];
 
     //question 0
-
     if (q[questionNumber].id == 0) {
 	divider(70);
 	printf("\nQuestion: How many credits do you complete by the end of one semester?\n");
@@ -94,9 +94,11 @@ void firstYearQuestions () {
 
 	if (strcasecmp(questionChoice, "B") == 0) {
 	    printf("Correct!\n");
+	    q[questionNumber].points = 1;
 	}
 	else if (strcasecmp(questionChoice, "A") == 0 || strcasecmp(questionChoice, "C") == 0 || strcasecmp(questionChoice, "D") == 0) {
 	    printf("Incorrect. (Answer: 'B')\n");
+	    q[questionNumber].points = 0;
 	}
 	else {
 	    printf("Error: Invalid choice.\n");
@@ -106,7 +108,6 @@ void firstYearQuestions () {
     }
 
     //question 1
-
     else if (q[questionNumber].id == 1) {
 	divider(70);
 	printf("\nQuestion: Which course is not included in semester one?\n");
@@ -124,9 +125,11 @@ void firstYearQuestions () {
 
 	if (strcasecmp(questionChoice, "D") == 0) {
 	    printf("Correct!\n");
+	    q[questionNumber].points = 1;
 	}
 	else if (strcasecmp(questionChoice, "A") == 0 || strcasecmp(questionChoice, "B") == 0 || strcasecmp(questionChoice, "C") == 0) {
 	    printf("Incorrect. (Answer: 'D')\n");
+	    q[questionNumber].points = 0;
 	}
 	else {
 	    printf("Error: Invalid choice.\n");
@@ -136,7 +139,6 @@ void firstYearQuestions () {
     }
 
     //question 2
-
     else if (q[questionNumber].id == 2) {
 	divider(70);
 	printf("\nQuestion: How long is each semseter?\n");
@@ -154,9 +156,11 @@ void firstYearQuestions () {
 
 	if (strcasecmp(questionChoice, "C") == 0) {
 	    printf("Correct!\n");
+	    q[questionNumber].points = 1;
 	}
 	else if (strcasecmp(questionChoice, "A") == 0 || strcasecmp(questionChoice, "B") == 0 || strcasecmp(questionChoice, "D") == 0) {
 	    printf("Incorrect. (Answer: 'C')\n");
+	    q[questionNumber].points = 0;
 	}
 	else {
 	    printf("Error: Invalid choice.\n");
@@ -166,7 +170,6 @@ void firstYearQuestions () {
     }
 
     //question 3
-
     else if (q[questionNumber].id == 3) {
 	divider(70);
 	printf("\nQuestion: What is the minimum cGPA needed to avoid academic probation?\n");
@@ -184,9 +187,11 @@ void firstYearQuestions () {
 
 	if (strcasecmp(questionChoice, "A") == 0) {
 	    printf("Correct!\n");
+	    q[questionNumber].points = 1;
 	}
 	else if (strcasecmp(questionChoice, "B") == 0 || strcasecmp(questionChoice, "C") == 0 || strcasecmp(questionChoice, "D") == 0) {
 	    printf("Incorrect. (Answer: 'A')\n");
+	    q[questionNumber].points = 0;
 	}
 	else {
 	    printf("Error: Invalid choice.\n");
@@ -194,8 +199,11 @@ void firstYearQuestions () {
 	divider(70);
 	printf("\n");
     }
-}
 
+    //calculate & print total points
+    int totalPoints = q[0].points + q[1].points + q[2].points + q[3].points;
+    printf("\nTotal points %d/5\n", totalPoints);
+}
 
 void secondYearQuestions () {
 
