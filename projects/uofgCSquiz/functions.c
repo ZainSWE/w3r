@@ -4,7 +4,7 @@
 #include <strings.h>
 #include "header.h"
 
-#define MAXQUESTIONS 5
+#define MAXQUESTIONS 6
 
 void divider (int num) {
 
@@ -66,9 +66,9 @@ void firstYearQuestions () {
 
     //index randomizer
     srand(time(NULL));
-    Question q[MAXQUESTIONS];
+    Question q[MAXQUESTIONS] = {0};
 
-    int questionNumber = rand() % 5;
+    int questionNumber = rand() % 6;
     q[questionNumber].id = questionNumber;
 
     printf("\nYour random index: %d\n", q[questionNumber].id);
@@ -200,8 +200,70 @@ void firstYearQuestions () {
 	printf("\n");
     }
 
+    //question 4
+    else if (q[questionNumber].id == 4) {
+	divider(70);
+	printf("\nQuestion: What is the standard amount of electives you can take in one semester?\n");
+	printf(
+	"\nA. 3"
+	"\nB. 1"
+	"\nC. 2"
+	"\nD. 4"
+	"\n\nEnter choice: "
+	);
+
+	fgets(buffer, sizeof(buffer), stdin);
+	sscanf(buffer, "%s", questionChoice);
+	printf("\nYour choice: %s.\n", questionChoice);
+
+	if (strcasecmp(questionChoice, "C") == 0) {
+	    printf("Correct!\n");
+	    q[questionNumber].points = 1;
+	}
+	else if (strcasecmp(questionChoice, "A") == 0 || strcasecmp(questionChoice, "B") == 0 || strcasecmp(questionChoice, "D") == 0) {
+	    printf("Incorrect. (Answer: 'C')\n");
+	    q[questionNumber].points = 0;
+	}
+	else {
+	    printf("Error: Invalid choice.\n");
+	}
+	divider(70);
+	printf("\n");
+    }
+
+   //question 5
+    else if (q[questionNumber].id == 5) {
+	divider(70);
+	printf("\nQuestion: Which course is not mandatory in semester one?\n");
+	printf(
+	"\nA. CIS*1300"
+	"\nB. CIS*1050"
+	"\nC. CIS*1910"
+	"\nD. MATH*1200"
+	"\n\nEnter choice: "
+	);
+
+	fgets(buffer, sizeof(buffer), stdin);
+	sscanf(buffer, "%s", questionChoice);
+	printf("\nYour choice: %s.\n", questionChoice);
+
+	if (strcasecmp(questionChoice, "B") == 0) {
+	    printf("Correct!\n");
+	    q[questionNumber].points = 1;
+	}
+	else if (strcasecmp(questionChoice, "A") == 0 || strcasecmp(questionChoice, "C") == 0 || strcasecmp(questionChoice, "D") == 0) {
+	    printf("Incorrect. (Answer: 'B')\n");
+	    q[questionNumber].points = 0;
+	}
+	else {
+	    printf("Error: Invalid choice.\n");
+	}
+	divider(70);
+	printf("\n");
+    }
+
     //calculate & print total points
-    int totalPoints = q[0].points + q[1].points + q[2].points + q[3].points;
+    int totalPoints = q[0].points + q[1].points + q[2].points + q[3].points + q[4].points + q[5].points;
     printf("\nTotal points %d/5\n", totalPoints);
 }
 
