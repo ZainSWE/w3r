@@ -68,30 +68,21 @@ void firstYearQuestions () {
     //index randomizer
     srand(time(NULL));
     Question q[MAXQUESTIONS] = {0};
-    int questionNumber;
     int questionsAsked = 0;
-
-    questionNumber = rand() % 5;
-    q[questionNumber].id = questionNumber;
-
-    printf("\nYour random index: %d\n", q[questionNumber].id);
-
     char buffer[255];
     char questionChoice[50];
 
 //claud.ai code
-    while (questionsAsked < 6) {
-        // Pick a random question that hasn't been asked yet
-        int questionNumber;
-        do {
-            questionNumber = rand() % 6;
-        } while (q[questionNumber].completed == 1);
-
-        // Mark this question as completed
-        q[questionNumber].completed = 1;
-        q[questionNumber].id = questionNumber;
-
-        printf("\nQuestion %d/6 (ID: %d)\n", questionsAsked + 1, questionNumber);
+while (questionsAsked < 6) {
+    // Pick a random question that hasn't been asked yet
+    int questionNumber;
+    do {
+        questionNumber = rand() % 6;
+    } while (q[questionNumber].completed == 1);
+    
+    // DON'T mark as completed here!
+    q[questionNumber].id = questionNumber;
+    printf("\nQuestion %d/6 (ID: %d)\n", questionsAsked + 1, questionNumber);
 
     //question 0
     if (q[questionNumber].id == 0) {
@@ -112,12 +103,14 @@ void firstYearQuestions () {
 	if (strcasecmp(questionChoice, "B") == 0) {
 	    printf("Correct!\n");
 	    q[questionNumber].points = 1;
-
+	    q[questionNumber].completed = 1;
+	    questionsAsked++;;
 	}
 	else if (strcasecmp(questionChoice, "A") == 0 || strcasecmp(questionChoice, "C") == 0 || strcasecmp(questionChoice, "D") == 0) {
 	    printf("Incorrect. (Answer: 'B')\n");
 	    q[questionNumber].points = 0;
-
+	    q[questionNumber].completed = 1;
+	    questionsAsked++;;
 	}
 	else {
 	    printf("Error: Invalid choice.\n");
@@ -127,7 +120,7 @@ void firstYearQuestions () {
     }
 
     //question 1
-    if (q[questionNumber].id == 1) {
+    else if (q[questionNumber].id == 1) {
 	divider(70);
 	printf("\nQuestion: Which course is not included in semester one?\n");
 	printf(
@@ -145,10 +138,14 @@ void firstYearQuestions () {
 	if (strcasecmp(questionChoice, "D") == 0) {
 	    printf("Correct!\n");
 	    q[questionNumber].points = 1;
+	    q[questionNumber].completed = 1;
+	    questionsAsked++;;
 	}
 	else if (strcasecmp(questionChoice, "A") == 0 || strcasecmp(questionChoice, "B") == 0 || strcasecmp(questionChoice, "C") == 0) {
 	    printf("Incorrect. (Answer: 'D')\n");
 	    q[questionNumber].points = 0;
+	    q[questionNumber].completed = 1;
+	    questionsAsked++;;
 	}
 	else {
 	    printf("Error: Invalid choice.\n");
@@ -158,7 +155,7 @@ void firstYearQuestions () {
     }
 
     //question 2
-    if (q[questionNumber].id == 2) {
+    else if (q[questionNumber].id == 2) {
 	divider(70);
 	printf("\nQuestion: How long is each semseter?\n");
 	printf(
@@ -176,10 +173,14 @@ void firstYearQuestions () {
 	if (strcasecmp(questionChoice, "C") == 0) {
 	    printf("Correct!\n");
 	    q[questionNumber].points = 1;
+	    q[questionNumber].completed = 1;
+	    questionsAsked++;;
 	}
 	else if (strcasecmp(questionChoice, "A") == 0 || strcasecmp(questionChoice, "B") == 0 || strcasecmp(questionChoice, "D") == 0) {
 	    printf("Incorrect. (Answer: 'C')\n");
 	    q[questionNumber].points = 0;
+	    q[questionNumber].completed = 1;
+	    questionsAsked++;;
 	}
 	else {
 	    printf("Error: Invalid choice.\n");
@@ -189,7 +190,7 @@ void firstYearQuestions () {
     }
 
     //question 3
-    if (q[questionNumber].id == 3) {
+    else if (q[questionNumber].id == 3) {
 	divider(70);
 	printf("\nQuestion: What is the minimum cGPA needed to avoid academic probation?\n");
 	printf(
@@ -207,10 +208,14 @@ void firstYearQuestions () {
 	if (strcasecmp(questionChoice, "A") == 0) {
 	    printf("Correct!\n");
 	    q[questionNumber].points = 1;
+	    q[questionNumber].completed = 1;
+	    questionsAsked++;;
 	}
 	else if (strcasecmp(questionChoice, "B") == 0 || strcasecmp(questionChoice, "C") == 0 || strcasecmp(questionChoice, "D") == 0) {
 	    printf("Incorrect. (Answer: 'A')\n");
 	    q[questionNumber].points = 0;
+	    q[questionNumber].completed = 1;
+	    questionsAsked++;;
 	}
 	else {
 	    printf("Error: Invalid choice.\n");
@@ -220,7 +225,7 @@ void firstYearQuestions () {
     }
 
     //question 4
-    if (q[questionNumber].id == 4) {
+    else if (q[questionNumber].id == 4) {
 	divider(70);
 	printf("\nQuestion: What is the standard amount of electives you can take in one semester?\n");
 	printf(
@@ -238,10 +243,14 @@ void firstYearQuestions () {
 	if (strcasecmp(questionChoice, "C") == 0) {
 	    printf("Correct!\n");
 	    q[questionNumber].points = 1;
+	    q[questionNumber].completed = 1;
+	    questionsAsked++;;
 	}
 	else if (strcasecmp(questionChoice, "A") == 0 || strcasecmp(questionChoice, "B") == 0 || strcasecmp(questionChoice, "D") == 0) {
 	    printf("Incorrect. (Answer: 'C')\n");
 	    q[questionNumber].points = 0;
+	    q[questionNumber].completed = 1;
+	    questionsAsked++;;
 	}
 	else {
 	    printf("Error: Invalid choice.\n");
@@ -250,8 +259,8 @@ void firstYearQuestions () {
 	printf("\n");
     }
 
-   //question 5
-    if (q[questionNumber].id == 5) {
+    //question 5
+    else if (q[questionNumber].id == 5) {
 	divider(70);
 	printf("\nQuestion: Which course is not mandatory in semester one?\n");
 	printf(
@@ -269,11 +278,14 @@ void firstYearQuestions () {
 	if (strcasecmp(questionChoice, "B") == 0) {
 	    printf("Correct!\n");
 	    q[questionNumber].points = 1;
+	    q[questionNumber].completed = 1;
+	    questionsAsked++;;
 	}
 	else if (strcasecmp(questionChoice, "A") == 0 || strcasecmp(questionChoice, "C") == 0 || strcasecmp(questionChoice, "D") == 0) {
 	    printf("Incorrect. (Answer: 'B')\n");
 	    q[questionNumber].points = 0;
-
+	    q[questionNumber].completed = 1;
+	    questionsAsked++;;
 	}
 	else {
 	    printf("Error: Invalid choice.\n");
@@ -281,7 +293,6 @@ void firstYearQuestions () {
 	divider(70);
 	printf("\n");
     }
-        questionsAsked++;
     }
 
     //calculate & print total points
